@@ -1,1 +1,1 @@
-# subbly-jubbly
+#[ModKit Wiki](../../wiki)

@@ -1,0 +1,105 @@
+Which Listening sound has code X?
+
+Which Crazy Talk phrase has action #?
+
+Which HTTP Response status has response #?
+
+Which Chess rule determines the position
+of the # piece?
+
+Which Ice Cream flavour IS in the #
+position on the last flavour list?
+
+Which iPhone image has PIN digit #?
+
+Which Dr Doctor disease can be treated with X?
+Which Dr Doctor treatment can be used to cure X?
+
+Which Skyrim enemy is most susceptible to X?
+
+Which Mortal Kombat character has the move X?
+Which Mortal Kombat move has the command X?
+
+Which Maintenance job costs £#?
+
+Which Jukebox song has the lyrics X?
+Which Jukebox artist has the song X?
+
+Which European Travel city in X is the 
+destination with character X?
+
+Which Font Select typeface appears 
+# in the sample list?
+
+Which Subways stop is # on route #?
+
+Which Coffeebucks drink contains X?
+
+Which Hangover cure ingredient follows X after X?
+
+Which Westeros ancestral seat belongs to house X?
+
+Which Micro-Module appears #
+in its table of contents?
+
+Which Grocery Store item costs $#?
+
+Which Ultracube face is obtained by a rotation of X?
+
+Which Sticky Notes payroll job has 
+the # highest priority?
+
+Which Modkit module has the exact components: X?
+
+Which Brawler Database faction does X belong to?
+
+Which DACH Maze state shares a X border with X?
+
+Which Assembly Code function is performed by X?
+
+Which Ingredients dish uses the ingredients: X?
+
+Which Object Shows contest is X style and X type?
+
+Which Silhouettes solid occupies cell X#?
+
+Which Hold Ups move is the last listed X type move?
+
+Which Mister Softee ice cream is 
+most preferred by X?
+
+Which Variety component is the # item on the list?
+
+Which Charms spell is used for X?
+
+Which Board Walk property is 
+immediately clockwise of X?
+
+Which Simon Serves X is the colour X?
+
+/////////////////////////////////////////
+
+A = ASS, AMOGUS, ARMPIT
+B = BALLS, BOINKY, BASED, BITCHY, BUSSIN
+C = CRINKLE, CRINGE, CHUNGUS, COCK
+D = DUMPY, DICK, DOINKY, DIGGITY
+E = EUPHEMISM, EGGY, EDGY, EGIRL
+F = FUGLY, FUNNY, FRICK, FART, FATTY
+G = GANGLY, GOBBLE, GRUNKLE, GIGGITY
+H = HOES, HORNY, HONKERS, HEFTY
+I = ITSY, ITCHY, ICKLE, IRISH
+J = JUNK, JIGGLE, JOHNSON, JERK
+K = KINKY, KNICKERS, KNOBBLY
+L = LIGMA, LANKY, LUMPY, LEAN, LIMP
+M = MANCY, MILKERS, MEATY, MORBIUS
+N = NANCY, NIBBLE, NUTS
+O = OOF, OBESE, OWO, OUCHIE
+P = PLOPPERS, POGGERS, PUSS, PLUMP
+R = RUMPY, RACISM, ROWDY, RUBBER
+S = SUGMA, SLOPPY, SUSSY, SQUEEZY
+T = TIDDLY, TICKLE, THICC, TESTY, TWITCHY
+U = UGLY, UWU, UGANDAN, UNDERTALE
+V = VIBIN, VEINY, VORE, VOLUPTUOUS
+W = WIBBLE, WHIZZIE, WHOOPIE, WONKY
+Y = YIPPEE, YOINK, YOWZERS, YIKES
+Z = ZOINKS, ZAMN, ZIPPY
