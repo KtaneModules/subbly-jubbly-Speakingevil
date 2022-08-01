@@ -14,33 +14,35 @@ public class JubblyScript : MonoBehaviour {
     public TextMesh[] displays;
     public Text[] qa;
 
-    private readonly string[][] subblies = new string[24][]
+    private const string usedLetters = "ABCDEFGHIJKLMNOPRSTUVWYZ";
+    private readonly Dictionary<char, List<string>> defaultSubblies = new Dictionary<char, List<string>>
     {
-        new string[] { "ASS", "AMOGUS", "ARMPIT"},
-        new string[] { "BALLS", "BOINKY", "BASED", "BITCHY", "BUSSIN", "BOOTY"},
-        new string[] { "CRINKLE", "CRINGE", "CHUNGUS", "COCK"},
-        new string[] { "DUMPY", "DICK", "DOINKY", "DIGGITY"},
-        new string[] { "EUPHEMISM", "EGGY", "EDGY", "EGIRL"},
-        new string[] { "FUGLY", "FUNNY", "FRICK", "FART", "FATTY"},
-        new string[] { "GANGLY", "GOBBLE", "GRUNKLE", "GIGGITY"},
-        new string[] { "HOES", "HORNY", "HONKERS", "HEFTY"},
-        new string[] { "INCY", "ITCHY", "ICKLE", "IRISH"},
-        new string[] { "JUNK", "JIGGLE", "JOHNSON", "JERK"},
-        new string[] { "KINK", "KNICKERS", "KNOBBLY"},
-        new string[] { "LIGMA", "LANKY", "LUMPY", "LEAN", "LIMP"},
-        new string[] { "MANCY", "MILKERS", "MEATY", "MORBIUS"},
-        new string[] { "NANCY", "NIBBLE", "NUTS"},
-        new string[] { "OOF", "OBESE", "OWO", "OUCHIE"},
-        new string[] { "PLOPPERS", "POGGERS", "PUSS", "PLUMP"},
-        new string[] { "RUMPY", "RACISM", "ROWDY", "RUBBER"},
-        new string[] { "SUGMA", "SLOPPY", "SUSSY", "SQUEEZY", "SNIFF"},
-        new string[] { "TIDDLY", "THICC", "TICKLE", "TESTY", "TWITCHY"},
-        new string[] { "UGLY", "UWU", "UGANDAN", "UNDERTALE"},
-        new string[] { "VIBIN", "VEINY", "VORE", "VOLUPTUOUS"},
-        new string[] { "WIBBLE", "WHIZZIE", "WHOOPIE", "WONKY", "WINCY"},
-        new string[] { "YIPPEE", "YOINK", "YOWZERS", "YIKES"},
-        new string[] { "ZOINKS", "ZAMN", "ZIPPY"}
+        { 'A', new List<string>() { "ASS", "AMOGUS", "ARMPIT"}} ,
+        { 'B', new List<string>() { "BALLS", "BOINKY", "BASED", "BITCHY", "BUSSIN", "BOOTY", "BITCHES", "BUSSY" }},
+        { 'C', new List<string>() { "CRINKLE", "CRINGE", "CHUNGUS", "COCK" }},
+        { 'D', new List<string>() { "DUMPY", "DICK", "DOINKY", "DIGGITY", "DOOF" }},
+        { 'E', new List<string>() { "EUPHEMISM", "EGGY", "EDGY", "EGIRL", "EXISH" }},
+        { 'F', new List<string>() { "FUGLY", "FUNNY", "FRICK", "FART", "FATTY", "FORTNITE" }},
+        { 'G', new List<string>() { "GANGLY", "GOBBLE", "GRUNKLE", "GIGGITY", "GOOBER" }},
+        { 'H', new List<string>() { "HOES", "HORNY", "HONKERS", "HEFTY" }},
+        { 'I', new List<string>() { "INCY", "ITCHY", "ICKLE", "IRISH" }},
+        { 'J', new List<string>() { "JUNK", "JIGGLE", "JOHNSON", "JERK", "JINKIES" }},
+        { 'K', new List<string>() { "KINK", "KNICKERS", "KNOBBLY" }},
+        { 'L', new List<string>() { "LIGMA", "LANKY", "LUMPY", "LEAN", "LIMP" }},
+        { 'M', new List<string>() { "MANCY", "MILKERS", "MEATY", "MORBIUS" }},
+        { 'N', new List<string>() { "NANCY", "NIBBLE", "NUTS", }},
+        { 'O', new List<string>() { "OOF", "OBESE", "OWO", "OUCHIE" }},
+        { 'P', new List<string>() { "PLOPPERS", "POGGERS", "PUSS", "PLUMP", "PUSSY", "PENILE" }},
+        { 'R', new List<string>() { "RUMPY", "RACISM", "ROWDY", "RUBBER" }},
+        { 'S', new List<string>() { "SUGMA", "SLOPPY", "SUSSY", "SQUEEZY", "SNIFF", "SHREK", "SPONGEBOB", "SEINFELD", "SCRUNKLY" }},
+        { 'T', new List<string>() { "TIDDLY", "THICC", "TICKLE", "TESTY", "TWITCHY" }},
+        { 'U', new List<string>() { "UGLY", "UWU", "UGANDAN", "UNDERTALE" }},
+        { 'V', new List<string>() { "VIBIN", "VEINY", "VORE", "VOLUPTUOUS" }},
+        { 'W', new List<string>() { "WIBBLE", "WHIZZIE", "WHOOPIE", "WONKY", "WINCY", "WACKY", "WEEZER",  }},
+        { 'Y', new List<string>() { "YIPPEE", "YOINK", "YOWZERS", "YIKES", "YEOWZA" } },
+        { 'Z', new List<string>() { "ZOINKS", "ZAMN", "ZIPPY" }},
     };
+    private Dictionary<char, List<string>> subblies = new Dictionary<char, List<string>>();
     private readonly string[] questions = new string[34]
     {
         "LISTENING SOUND HAS CODE ",
@@ -129,10 +131,64 @@ public class JubblyScript : MonoBehaviour {
     private int moduleID;
     private bool moduleSolved;
 
+    JubblyModSettings settings = new JubblyModSettings();
+
+    private static Dictionary<string, object>[] TweaksEditorSettings = new Dictionary<string, object>[]
+ {
+          new Dictionary<string, object>
+          {
+            { "Filename", "SubblyJubblySettings.json"},
+            { "Name", "Subbly Jubbly" },
+            { "Listings", new List<Dictionary<string, object>>
+                {
+                    new Dictionary<string, object> {  { "Key", "A" }, { "Text", "A words" } },
+                    new Dictionary<string, object> {  { "Key", "B" }, { "Text", "B words"} },
+                    new Dictionary<string, object> {  { "Key", "C" }, { "Text", "C words"} },
+                    new Dictionary<string, object> {  { "Key", "D" }, { "Text", "D words"} },
+                    new Dictionary<string, object> {  { "Key", "E" }, { "Text", "E words"} },
+                    new Dictionary<string, object> {  { "Key", "F" }, { "Text", "F words"} },
+                    new Dictionary<string, object> {  { "Key", "G" }, { "Text", "G words"} },
+                    new Dictionary<string, object> {  { "Key", "H" }, { "Text", "H words"} },
+                    new Dictionary<string, object> {  { "Key", "I" }, { "Text", "I words"} },
+                    new Dictionary<string, object> {  { "Key", "J" }, { "Text", "J words"} },
+                    new Dictionary<string, object> {  { "Key", "K" }, { "Text", "K words"} },
+                    new Dictionary<string, object> {  { "Key", "L" }, { "Text", "L words"} },
+                    new Dictionary<string, object> {  { "Key", "M" }, { "Text", "M words"} },
+                    new Dictionary<string, object> {  { "Key", "N" }, { "Text", "N words"} },
+                    new Dictionary<string, object> {  { "Key", "O" }, { "Text", "O words"} },
+                    new Dictionary<string, object> {  { "Key", "P" }, { "Text", "P words"} },
+                    new Dictionary<string, object> {  { "Key", "R" }, { "Text", "R words"} },
+                    new Dictionary<string, object> {  { "Key", "S" }, { "Text", "S words"} },
+                    new Dictionary<string, object> {  { "Key", "T" }, { "Text", "T words"} },
+                    new Dictionary<string, object> {  { "Key", "U" }, { "Text", "U words"} },
+                    new Dictionary<string, object> {  { "Key", "V" }, { "Text", "V words"} },
+                    new Dictionary<string, object> {  { "Key", "W" }, { "Text", "W words"} },
+                    new Dictionary<string, object> {  { "Key", "Y" }, { "Text", "Y words"} },
+                    new Dictionary<string, object> {  { "Key", "Z" }, { "Text", "Z words"} },
+                }
+            }
+          }
+ };
+
+    private void Awake()
+    {
+        ModConfig<JubblyModSettings> config = new ModConfig<JubblyModSettings>("SubblyJubblySettings");
+        settings = config.Read();
+        config.Write(settings);
+        foreach (var entry in settings.GetDict())
+        {
+            if (entry.Value == null || entry.Value.Count == 0)
+                subblies.Add(entry.Key, defaultSubblies[entry.Key]);
+            else subblies.Add(entry.Key, entry.Value);
+        }
+    }
+
+
     private void Start()
     {
+
         moduleID = ++moduleIDCounter;
-        int[] rand = Enumerable.Range(0, 24).ToArray().Shuffle().ToArray();
+        char[] rand = Enumerable.Range(0, 24).ToArray().Shuffle().Select(i => usedLetters[i]).ToArray();
         for (int i = 0; i < 9; i++)
         {
             subselect[i] = subblies[rand[i]].PickRandom();
