@@ -14,6 +14,7 @@ public class JubblyScript : MonoBehaviour
     public Transform buttondown;
     public TextMesh[] displays;
     public Text[] qa;
+    public Text subdisp;
 
     private const string usedLetters = "ABCDEFGHIJKLMNOPRSTUVWYZ";
     private readonly Dictionary<char, List<string>> defaultSubblies = new Dictionary<char, List<string>>
@@ -31,7 +32,7 @@ public class JubblyScript : MonoBehaviour
         { 'K', new List<string>() { "KINK", "KNICKERS", "KNOBBLY" }},
         { 'L', new List<string>() { "LIGMA", "LANKY", "LUMPY", "LEAN", "LIMP" }},
         { 'M', new List<string>() { "MANCY", "MILKERS", "MEATY", "MORBIUS", "MINGER"}},
-        { 'N', new List<string>() { "NANCY", "NIBBLE", "NUTS", }},
+        { 'N', new List<string>() { "NANCY", "NIBBLE", "NUTS" }},
         { 'O', new List<string>() { "OOF", "OBESE", "OWO", "OUCHIE", "OOPSIE" }},
         { 'P', new List<string>() { "PLOPPERS", "POGGERS", "PUSS", "PLUMP", "POONANI"}},
         { 'R', new List<string>() { "RUMPY", "RACISM", "ROWDY", "RUBBER" }},
@@ -243,7 +244,7 @@ public class JubblyScript : MonoBehaviour
                             {
                                 gameon = true;
                                 StopCoroutine(cycle);
-                                displays[2].text = "GOOD LUCK";
+                                subdisp.text = "GOOD LUCK";
                                 StartCoroutine(Flip(false));
                                 Audio.PlaySoundAtTransform("Start", transform);
                                 buttondown.localPosition += new Vector3(0, 20, 0);
@@ -342,9 +343,9 @@ public class JubblyScript : MonoBehaviour
         int i = 0;
         while (!moduleSolved)
         {
-            displays[2].text = subselect[i];
+            subdisp.text = subselect[i];
             yield return new WaitForSeconds(0.8f);
-            displays[2].text = "";
+            subdisp.text = "";
             yield return new WaitForSeconds(0.2f);
             i += 1;
             i %= 9;
@@ -467,12 +468,12 @@ public class JubblyScript : MonoBehaviour
             int r = Random.Range(0, 13);
             if (r > 9)
             {
-                displays[2].text = "GOOD JOB";
+                subdisp.text = "GOOD JOB";
                 yield return new WaitForSeconds(0.625f);
             }
             else
             {
-                displays[2].text = "G" + suffixes[r] + " J" + suffixes[r];
+                subdisp.text = "G" + suffixes[r] + " J" + suffixes[r];
                 yield return new WaitForSeconds(0.125f);
             }
         }
@@ -561,6 +562,33 @@ public class JubblyScript : MonoBehaviour
             {
                 yield return "sendtochaterror!f " + command + " is an invalid command.";
             }
+        }
+    }
+
+    private IEnumerator TwitchHandleForcedSolve()
+    {
+        if (!gameon)
+            buttons[0].OnInteract();
+        while (displays[0].text == "") yield return true;
+        int start = stage;
+        for (int i = start; i < 3; i++)
+        {
+            while (!aselect[i, 1].StartsWith(submission))
+            {
+                buttons[1].OnInteract();
+                yield return new WaitForSeconds(0.125f);
+            }
+            int start2 = submission.Length;
+            for (int j = start2; j < aselect[i, 1].Length; j++)
+            {
+                if (aselect[i, 1][j] == ' ')
+                    buttons[2].OnInteract();
+                else
+                    buttons["QWERTYUIOPASDFGHJKLZXCVBNM".IndexOf(aselect[i, 1][j].ToString()) + 4].OnInteract();
+                yield return new WaitForSeconds(0.125f);
+            }
+            buttons[3].OnInteract();
+            yield return new WaitForSeconds(0.125f);
         }
     }
 }

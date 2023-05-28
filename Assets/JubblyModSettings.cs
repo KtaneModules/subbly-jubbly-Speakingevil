@@ -7,7 +7,7 @@ public class JubblyModSettings
     public string A = "ASS,AMOGUS,ARMPIT";
     public string B = "BALLS,BOINKY,BASED,BITCHY,BUSSIN,BOOTY,BITCHES,BUSSY";
     public string C = "CRINKLE,CRINGE,CHUNGUS,COCK";
-    public string D = "DUMPY,DICK,DOINKY,DIGGITY,DOOF";
+    public string D = "DUMPY,DICK,DOINKY,DIGGITY,DOOF,DOOPSIE";
     public string E = "EUPHEMISM,EGGY,EDGY,EGIRL,EXISH";
     public string F = "FUGLY,FUNNY,FRICK,FART,FATTY,FORTNITE";
     public string G = "GANGLY,GOBBLE,GRUNKLE,GIGGITY,GOOBER";
@@ -16,16 +16,16 @@ public class JubblyModSettings
     public string J = "JUNK,JIGGLE,JOHNSON,JERK,JINKIES";
     public string K = "KINK,KNICKERS,KNOBBLY";
     public string L = "LIGMA,LANKY,LUMPY,LEAN,LIMP";
-    public string M = "MANCY,MILKERS,MEATY,MORBIUS";
+    public string M = "MANCY,MILKERS,MEATY,MORBIUS,MINGER";
     public string N = "NANCY,NIBBLE,NUTS";
-    public string O = "OOF,OBESE,OWO,OUCHIE";
-    public string P = "PLOPPERS,POGGERS,PUSS,PLUMP,PUSSY,PENILE";
+    public string O = "OOF,OBESE,OWO,OUCHIE,OOPSIE";
+    public string P = "PLOPPERS,POGGERS,PUSS,PLUMP,POONANI";
     public string R = "RUMPY,RACISM,ROWDY,RUBBER";
-    public string S = "SUGMA,SLOPPY,SUSSY,SQUEEZY,SNIFF,SHREK,SPONGEBOB,SEINFELD,SCRUNKLY";
+    public string S = "SUGMA,SLOPPY,SUSSY,SQUEEZY,SNIFF,SHREK,SEINFELD,SCRUNKLY";
     public string T = "TIDDLY,THICC,TICKLE,TESTY,TWITCHY";
     public string U = "UGLY,UWU,UGANDAN,UNDERTALE";
     public string V = "VIBIN,VEINY,VORE,VOLUPTUOUS";
-    public string W = "WIBBLE,WHIZZIE,WHOOPIE,WONKY,WINCY,WACKY,WEEZER";
+    public string W = "WIBBLE,WHIZZIE,WHOOPIE,WONKY,WINCY,WACKY,WEEZER,WHOLESOME";
     public string Y = "YIPPEE,YOINK,YOWZERS,YIKES,YEOWZA";
     public string Z = "ZOINKS,ZAMN,ZIPPY";
 
